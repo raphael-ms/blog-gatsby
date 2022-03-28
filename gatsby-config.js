@@ -22,29 +22,29 @@ module.exports = {
             singularName: "user",
           },
         ],
-        // singleTypes: [
-        //   {
-        //     singularName: "about",
-        //     queryParams: {
-        //       populate: {
-        //         blocks: {
-        //           populate: "*",
-        //         },
-        //       },
-        //     },
-        //   },
-        //   {
-        //     singularName: "global",
-        //     queryParams: {
-        //       populate: {
-        //         favicon: "*",
-        //         defaultSeo: {
-        //           populate: "*",
-        //         },
-        //       },
-        //     },
-        //   },
-        // ],
+        singleTypes: [
+          //   {
+          //     singularName: "about",
+          //     queryParams: {
+          //       populate: {
+          //         blocks: {
+          //           populate: "*",
+          //         },
+          //       },
+          //     },
+          //   },
+          {
+            singularName: "global",
+            queryParams: {
+              populate: {
+                favicon: "*",
+                defaultSeo: {
+                  populate: "*",
+                },
+              },
+            },
+          },
+        ],
       },
     },
     "gatsby-plugin-image",
