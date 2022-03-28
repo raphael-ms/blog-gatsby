@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allStrapiPost.nodes
 
   if (posts.length > 0) {
-    posts.forEach((post) => {
+    posts.forEach(post => {
       createPage({
         path: `/post/${post.slug}`,
         component: blogPost,
