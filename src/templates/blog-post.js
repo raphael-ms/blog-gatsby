@@ -5,13 +5,12 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const PostPage = ({ data }) => {
-  console.log(data)
-  const post = data?.StrapiPost
+  const post = data?.strapiPost
 
   const seo = {
     MetaTitle: post.title,
-    MetaDescription: post.description,
-    ShareImage: post.cover,
+    MetaDescription: post.body,
+    ShareImage: post.mainImage,
   }
 
   return (
@@ -19,16 +18,13 @@ const PostPage = ({ data }) => {
       <Seo seo={seo} />
       <header className="container max-w-4xl py-8">
         <h1 className="text-6xl font-bold text-neutral-700">{post.title}</h1>
-        <p className="mt-4 text-2xl text-neutral-500">{post.description}</p>
+        <p className="mt-4 text-2xl text-neutral-500">{post.body}</p>
         <GatsbyImage
-          image={getImage(post?.cover?.localFile)}
-          alt={post?.cover?.alternativeText}
+          image={getImage(post?.mainImage?.localFile)}
+          alt={post?.mainImage?.alternativeText}
           className="mt-6"
         />
       </header>
-      {/* <main className="mt-8">
-        <BlocksRenderer blocks={post.blocks || []} />
-      </main> */}
     </Layout>
   )
 }
@@ -45,7 +41,9 @@ export const pageQuery = graphql`
         localFile {
           url
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

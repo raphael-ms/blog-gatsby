@@ -5,12 +5,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const ArticleCard = ({ article }) => {
   return (
     <Link
-      to={`/article/${article.slug}`}
+      to={`/post/${article.slug}`}
       className="overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md"
     >
       <GatsbyImage
-        image={getImage(article.cover?.localFile)}
-        alt={article.cover?.alternativeText}
+        image={getImage(article.mainImage?.localFile)}
+        alt={article.mainImage?.alternativeText}
       />
       <div className="px-4 py-4">
         <h3 className="font-bold text-neutral-700">{article.title}</h3>
