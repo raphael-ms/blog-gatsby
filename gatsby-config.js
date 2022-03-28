@@ -7,44 +7,11 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-postcss",
     {
-      resolve: "gatsby-source-strapi",
+      resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.STRAPI_API_URL || "http://localhost:4200",
-        //accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: [
-          {
-            singularName: "category",
-          },
-          {
-            singularName: "post",
-          },
-          {
-            singularName: "user",
-          },
-        ],
-        singleTypes: [
-          //   {
-          //     singularName: "about",
-          //     queryParams: {
-          //       populate: {
-          //         blocks: {
-          //           populate: "*",
-          //         },
-          //       },
-          //     },
-          //   },
-          {
-            singularName: "global",
-            queryParams: {
-              populate: {
-                favicon: "*",
-                defaultSeo: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-        ],
+        collectionTypes: [`category`, `post`, `user`],
+        singleTypes: [`global`],
       },
     },
     "gatsby-plugin-image",

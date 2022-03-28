@@ -5,29 +5,29 @@ import Layout from "../components/layout"
 import BlocksRenderer from "../components/blocks-renderer"
 import Seo from "../components/seo"
 
-const ArticlePage = ({ data }) => {
-  const article = data.strapiArticle
+const PostPage = ({ data }) => {
+  const post = data.StrapiPost
 
   const seo = {
-    metaTitle: article.title,
-    metaDescription: article.description,
-    shareImage: article.cover,
+    MetaTitle: post.title,
+    MetaDescription: post.description,
+    ShareImage: post.cover,
   }
 
   return (
-    <Layout as="article">
+    <Layout as="post">
       <Seo seo={seo} />
       <header className="container max-w-4xl py-8">
-        <h1 className="text-6xl font-bold text-neutral-700">{article.title}</h1>
-        <p className="mt-4 text-2xl text-neutral-500">{article.description}</p>
+        <h1 className="text-6xl font-bold text-neutral-700">{post.title}</h1>
+        <p className="mt-4 text-2xl text-neutral-500">{post.description}</p>
         <GatsbyImage
-          image={getImage(article?.cover?.localFile)}
-          alt={article?.cover?.alternativeText}
+          image={getImage(post?.cover?.localFile)}
+          alt={post?.cover?.alternativeText}
           className="mt-6"
         />
       </header>
       <main className="mt-8">
-        <BlocksRenderer blocks={article.blocks || []} />
+        <BlocksRenderer blocks={post.blocks || []} />
       </main>
     </Layout>
   )
@@ -35,7 +35,7 @@ const ArticlePage = ({ data }) => {
 
 export const pageQuery = graphql`
   query ($slug: String) {
-    strapiArticle(slug: { eq: $slug }) {
+    StrapiPost(slug: { eq: $slug }) {
       id
       slug
       title
@@ -56,4 +56,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ArticlePage
+export default PostPage

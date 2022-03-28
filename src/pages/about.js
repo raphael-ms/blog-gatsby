@@ -19,8 +19,8 @@ const AboutPage = () => {
   const { title, blocks } = strapiAbout
 
   const seo = {
-    metaTitle: title,
-    metaDescription: title,
+    MetaTitle: title,
+    MetaDescription: title,
   }
 
   return (

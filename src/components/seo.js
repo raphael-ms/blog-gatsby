@@ -6,16 +6,16 @@ const Seo = ({ seo = {} }) => {
   const { strapiGlobal } = useStaticQuery(graphql`
     query {
       strapiGlobal {
-        siteName
-        favicon {
+        SiteName
+        Favicon {
           localFile {
             url
           }
         }
-        defaultSeo {
-          metaTitle
-          metaDescription
-          shareImage {
+        DefaultSeo {
+          MetaTitle
+          MetaDescription
+          ShareImage {
             localFile {
               url
             }
@@ -25,47 +25,47 @@ const Seo = ({ seo = {} }) => {
     }
   `)
 
-  const { siteName, defaultSeo, favicon } = strapiGlobal
+  const { SiteName, DefaultSeo, Favicon } = strapiGlobal
 
   // Merge default and page-specific SEO values
-  const fullSeo = { ...defaultSeo, ...seo }
+  const fullSeo = { ...DefaultSeo, ...seo }
 
   // Add site name to title
-  fullSeo.metaTitle = `${fullSeo.metaTitle} | ${siteName}`
+  fullSeo.MetaTitle = `${fullSeo.MetaTitle} | ${SiteName}`
 
   const getMetaTags = () => {
     const tags = []
 
-    if (fullSeo.metaTitle) {
+    if (fullSeo.MetaTitle) {
       tags.push(
         {
           property: "og:title",
-          content: fullSeo.metaTitle,
+          content: fullSeo.MetaTitle,
         },
         {
           name: "twitter:title",
-          content: fullSeo.metaTitle,
+          content: fullSeo.MetaTitle,
         }
       )
     }
-    if (fullSeo.metaDescription) {
+    if (fullSeo.MetaDescription) {
       tags.push(
         {
           name: "description",
-          content: fullSeo.metaDescription,
+          content: fullSeo.MetaDescription,
         },
         {
           property: "og:description",
-          content: fullSeo.metaDescription,
+          content: fullSeo.MetaDescription,
         },
         {
           name: "twitter:description",
-          content: fullSeo.metaDescription,
+          content: fullSeo.MetaDescription,
         }
       )
     }
-    if (fullSeo.shareImage) {
-      const imageUrl = fullSeo.shareImage.localFile.url
+    if (fullSeo.ShareImage) {
+      const imageUrl = fullSeo.ShareImage.localFile.url
       tags.push(
         {
           name: "image",
@@ -96,11 +96,11 @@ const Seo = ({ seo = {} }) => {
 
   return (
     <Helmet
-      title={fullSeo.metaTitle}
+      title={fullSeo.MetaTitle}
       link={[
         {
           rel: "icon",
-          href: favicon.localFile.url,
+          href: Favicon.localFile.url,
         },
       ]}
       meta={metaTags}
