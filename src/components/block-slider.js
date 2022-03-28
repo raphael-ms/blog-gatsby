@@ -1,13 +1,14 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+// import Slider from "react-slick"
+// import "slick-carousel/slick/slick.css"
+// import "slick-carousel/slick/slick-theme.css"
 
 const BlockSlider = ({ data }) => {
   return (
     <div className="container max-w-3xl py-8">
-      <Slider
+      Slider here {data}
+      {/* <Slider
         dots={true}
         infinite={true}
         speed={300}
@@ -23,7 +24,7 @@ const BlockSlider = ({ data }) => {
             alt={file.alternativeText}
           />
         ))}
-      </Slider>
+      </Slider> */}
     </div>
   )
 }

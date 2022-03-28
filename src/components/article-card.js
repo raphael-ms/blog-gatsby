@@ -23,12 +23,12 @@ const ArticleCard = ({ article }) => {
 }
 
 export const query = graphql`
-  fragment ArticleCard on STRAPI_ARTICLE {
+  fragment ArticleCard on StrapiPost {
     id
     slug
     title
-    description
-    cover {
+    body
+    mainImage {
       alternativeText
       localFile {
         childImageSharp {

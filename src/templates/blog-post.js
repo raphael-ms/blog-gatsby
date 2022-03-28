@@ -2,11 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-import BlocksRenderer from "../components/blocks-renderer"
 import Seo from "../components/seo"
 
 const PostPage = ({ data }) => {
-  const post = data.StrapiPost
+  console.log(data)
+  const post = data?.StrapiPost
 
   const seo = {
     MetaTitle: post.title,
@@ -26,24 +26,21 @@ const PostPage = ({ data }) => {
           className="mt-6"
         />
       </header>
-      <main className="mt-8">
+      {/* <main className="mt-8">
         <BlocksRenderer blocks={post.blocks || []} />
-      </main>
+      </main> */}
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query ($slug: String) {
-    StrapiPost(slug: { eq: $slug }) {
+    strapiPost(slug: { eq: $slug }) {
       id
       slug
       title
-      description
-      blocks {
-        ...Blocks
-      }
-      cover {
+      body
+      mainImage {
         alternativeText
         localFile {
           url

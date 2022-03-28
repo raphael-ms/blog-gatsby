@@ -15,7 +15,6 @@ const IndexPage = () => {
       }
       strapiGlobal {
         SiteName
-        SiteDescription
       }
     }
   `)
@@ -25,7 +24,6 @@ const IndexPage = () => {
       <Seo seo={{ metaTitle: "Home" }} />
       <Headings
         title={strapiGlobal.SiteName}
-        description={strapiGlobal.SiteDescription}
       />
       <main>
         <ArticlesGrid articles={allStrapiPost.nodes} />

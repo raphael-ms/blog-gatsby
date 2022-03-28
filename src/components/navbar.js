@@ -8,11 +8,7 @@ const Navbar = () => {
         <Link to="/" className="text-xl font-medium">
           Blog
         </Link>
-        <div className="flex flex-row items-baseline justify-end">
-          <Link className="font-medium" to="/about">
-            About
-          </Link>
-        </div>
+        <div className="flex flex-row items-baseline justify-end">About</div>
       </nav>
     </header>
   )
