@@ -11,7 +11,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL || "http://localhost:4200",
         collectionTypes: [`category`, `post`, `user`],
-        singleTypes: [`global`],
+        singleTypes: [`global`, `homepage`],
       },
     },
     "gatsby-plugin-image",
