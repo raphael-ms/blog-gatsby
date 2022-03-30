@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import HeroCover from "../components/home/hero-cover"
 import Seo from "../components/seo"
 import PostsGrid from "../components/home/posts-grid"
+import AboutSection from "../components/home/about-section"
 
 const IndexPage = () => {
   const { strapiHomepage, allStrapiPost } = useStaticQuery(graphql`
@@ -16,10 +17,7 @@ const IndexPage = () => {
           alternativeText
           localFile {
             childImageSharp {
-              gatsbyImageData (
-                width: 1058
-                height: 259
-              )
+              gatsbyImageData(width: 1058, height: 259)
             }
           }
         }
@@ -63,11 +61,15 @@ const IndexPage = () => {
     <Layout>
       <Seo seo={{ metaTitle: "Home" }} />
       <HeroCover
-          logoImage={strapiHomepage?.LogoImage}
-          cover={strapiHomepage?.Cover}
-        />
-      <main>        
+        logoImage={strapiHomepage?.LogoImage}
+        cover={strapiHomepage?.Cover}
+      />
+      <main>
         <PostsGrid posts={allStrapiPost} />
+        <AboutSection
+          profile={strapiHomepage?.AboutPicture}
+          about={strapiHomepage?.About}
+        />
       </main>
     </Layout>
   )
