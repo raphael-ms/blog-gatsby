@@ -22,7 +22,7 @@ const PostCard = ({ post, index }) => {
       >
         {index % 2 === 0 && (
           <GatsbyImage
-            className="w-1/2"
+            className="w-1/2 object-contain"
             image={getImage(post.mainImage?.localFile)}
             alt={post.mainImage?.alternativeText}
           />
@@ -35,7 +35,7 @@ const PostCard = ({ post, index }) => {
         </div>
         {index % 2 !== 0 && (
           <GatsbyImage
-            className="w-1/2"
+            className="w-1/2 object-contain"
             image={getImage(post.mainImage?.localFile)}
             alt={post.mainImage?.alternativeText}
           />

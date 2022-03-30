@@ -4,7 +4,6 @@ import PostCard from "./post-card"
 
 const PostsGrid = ({ posts }) => {
   const { nodes } = posts
-  console.log(nodes)
   return (
     <section className="container mt-12">
       <h1 className="font-sans text-3xl text-purple-700 font-bold">POSTS</h1>
