@@ -1,20 +1,43 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
-import ArticlesGrid from "../components/articles-grid"
+import HeroCover from "../components/hero-cover"
 import Seo from "../components/seo"
-import Headings from "../components/headings"
 
 const IndexPage = () => {
-  const { allStrapiPost, strapiGlobal } = useStaticQuery(graphql`
+  const { strapiHomepage } = useStaticQuery(graphql`
     query {
-      allStrapiPost {
-        nodes {
-          ...ArticleCard
+      strapiHomepage {
+        About
+        PageTitle
+        HowManyPosts
+        LogoImage {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData (
+                width: 1058
+                height: 259
+              )
+            }
+          }
         }
-      }
-      strapiGlobal {
-        SiteName
+        Cover {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        AboutPicture {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
       }
     }
   `)
@@ -22,9 +45,12 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo seo={{ metaTitle: "Home" }} />
-      <Headings title={strapiGlobal.SiteName} />
+      {/* <Headings title={strapiGlobal.SiteName} /> */}
       <main>
-        <ArticlesGrid articles={allStrapiPost.nodes} />
+        <HeroCover
+          logoImage={strapiHomepage?.LogoImage}
+          cover={strapiHomepage?.Cover}
+        />
       </main>
     </Layout>
   )

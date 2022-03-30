@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ArticleCard = ({ article }) => {
@@ -21,22 +21,5 @@ const ArticleCard = ({ article }) => {
     </Link>
   )
 }
-
-export const query = graphql`
-  fragment ArticleCard on StrapiPost {
-    id
-    slug
-    title
-    body
-    mainImage {
-      alternativeText
-      localFile {
-        childImageSharp {
-          gatsbyImageData(aspectRatio: 1.77)
-        }
-      }
-    }
-  }
-`
 
 export default ArticleCard
