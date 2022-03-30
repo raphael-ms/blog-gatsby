@@ -32,7 +32,11 @@ const PostsPage = () => {
 
   return (
     <Layout>
-      <Seo seo={{ metaTitle: "Blog-Posts" }} />
+      <Seo
+        seo={{
+          metaTitle: "Blog-Posts",
+        }}
+      />
       <Headings title={strapiGlobal.SiteName} />
       <main>
         <ArticlesGrid articles={allStrapiPost.nodes} />

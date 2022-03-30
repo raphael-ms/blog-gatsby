@@ -28,7 +28,10 @@ const Seo = ({ seo = {} }) => {
   const { SiteName, DefaultSeo, Favicon } = strapiGlobal
 
   // Merge default and page-specific SEO values
-  const fullSeo = { ...DefaultSeo, ...seo }
+  const fullSeo = {
+    ...DefaultSeo,
+    ...seo,
+  }
 
   // Add site name to title
   fullSeo.MetaTitle = `${fullSeo.MetaTitle} | ${SiteName}`
@@ -87,7 +90,10 @@ const Seo = ({ seo = {} }) => {
         content: "article",
       })
     }
-    tags.push({ name: "twitter:card", content: "summary_large_image" })
+    tags.push({
+      name: "twitter:card",
+      content: "summary_large_image",
+    })
 
     return tags
   }

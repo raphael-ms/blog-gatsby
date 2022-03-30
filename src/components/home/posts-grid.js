@@ -15,7 +15,7 @@ const PostsGrid = ({ posts }) => {
       </div>
       <div className="flex justify-center mt-10">
         <Link
-          className="flex items-center justify-center w-52 text-center h-10 bg-purple-700 text-white self-center rounded-full cursor-pointer hover:shadow-lg hover:bg-purple-600"
+          className="flex items-center justify-center w-52 text-center h-10 bg-purple-700 text-white self-center rounded-full cursor-pointer hover:shadow-lg hover:bg-purple-600 hover:scale-105 duration-700"
           to={`/posts`}
         >
           VER MAIS

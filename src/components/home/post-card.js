@@ -7,7 +7,18 @@ const PostCard = ({ post, index }) => {
     <div>
       <Link
         to={`/post/${post.slug}`}
-        className="flex divide-y-reverse overflow-hidden max-h-72 mt-9 rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md"
+        className="flex 
+        divide-y-reverse 
+        overflow-hidden 
+        max-h-72 
+        mt-9 
+        rounded-lg 
+        bg-white 
+        shadow-sm 
+        transition-shadow 
+        hover:shadow-md
+        hover:opacity-90
+        duration-500"
       >
         {index % 2 === 0 && (
           <GatsbyImage
@@ -17,8 +28,10 @@ const PostCard = ({ post, index }) => {
           />
         )}
         <div className="px-4 py-4 w-1/2">
-          <h3 className="font-bold text-xl text-neutral-700 uppercase">{post.title}</h3>
-          <p className="mt-5 text-neutral-500 line-clamp-2">{post.body}</p>
+          <h3 className="font-bold text-xl text-neutral-700 uppercase">
+            {post.title}
+          </h3>
+          <p className="mt-5 text-neutral-500 line-clamp-6">{post.body}</p>
         </div>
         {index % 2 !== 0 && (
           <GatsbyImage

@@ -10,9 +10,9 @@ const AboutSection = ({ profile, about }) => {
           <div className="w-2/3">
             <p className="mt-5">{about}</p>
           </div>
-          <div className="flex justify-end w-1/2 mb-16">
+          <div className="flex justify-end w-1/2 mb-16 hover:ease-in">
             <GatsbyImage
-              className="w-96  rounded-full"
+              className="w-96  rounded-full hover:shadow-2xl hover:scale-110 duration-700"
               image={getImage(profile.localFile)}
               alt={profile.alternativeText}
             />
